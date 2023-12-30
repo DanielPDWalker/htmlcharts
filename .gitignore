@@ -161,3 +161,6 @@ cython_debug/
 
 # Ignore output .html files
 html_chart.html
+
+# vscode
+.vscode/
