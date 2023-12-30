@@ -1,9 +1,12 @@
 """Bar chart"""
 
 from math import floor
+from htmlcharts.utils import max_bar_value
 
 
-def bar_chart(data: dict, bar_height: int = 200, chart_width: int = 400, bar_color: str = "rgb(0,138,201)", label_color: str = "rgb(82,82,82)"):
+def bar_chart(data: dict, bar_height: int = 200, chart_width: int = 400, bar_color: str = "rgb(0,138,201)", label_color: str = "rgb(82,82,82)", file_output: bool = False, file_name: str = "html_chart"):
+
+    #max_bar_value = max_bar_value(data)
 
     style = '''
         <style>
@@ -87,14 +90,8 @@ def bar_chart(data: dict, bar_height: int = 200, chart_width: int = 400, bar_col
         </html>
     '''
 
-    with open('html_chart.html', 'w') as f:
-        f.write(html)
-
-
-if __name__ == '__main__':
-
-    data = {"Mon": 4, "Tue": 2, "Wed": 8, "Thu": 1, "Fri": 0, "Sat": 3, "Sun": 2}
-
-    data_zeros = {"Mon": 0, "Tue": 0, "Wed": 0, "Thu": 0, "Fri": 0, "Sat": 0, "Sun": 0}
-
-    bar_chart(data_zeros, bar_height=500)
+    if file_output:
+        with open(f'{file_name}.html', 'w') as f:
+            f.write(html)
+    else:
+        print(html)
