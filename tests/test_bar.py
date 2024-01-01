@@ -39,3 +39,12 @@ class TestBar(unittest.TestCase):
         bar_chart_html = bar_chart(custom_data, bar_height=500)
         self.assertFalse('height="200"' in bar_chart_html)
         self.assertTrue('height="500"' in bar_chart_html)
+
+    def test_default_chart_width(self):
+        bar_chart_html = bar_chart(self.data)
+        self.assertTrue('table style="width: 400;"' in bar_chart_html)
+
+    def test_custom_chart_width(self):
+        bar_chart_html = bar_chart(self.data, chart_width=800)
+        self.assertFalse('table style="width: 400;"' in bar_chart_html)
+        self.assertTrue('table style="width: 800;"' in bar_chart_html)
