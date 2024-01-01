@@ -11,16 +11,8 @@ class TestBar(unittest.TestCase):
     def tearDown(self):
         if os.path.isfile(Path("html_chart.html")):
             os.remove(Path("html_chart.html"))
-
-    def test_file_output_default(self):
-        bar_chart_html = bar_chart(self.data)
-        self.assertFalse(os.path.isfile(Path("html_chart.html")))
-        self.assertTrue(bar_chart_html != None)
-
-    def test_file_output_true(self):
-        bar_chart_html = bar_chart(self.data, file_output=True)
-        self.assertTrue(os.path.isfile(Path("html_chart.html")))
-        self.assertTrue(bar_chart_html == None)
+        if os.path.isfile(Path("test_output_name.html")):
+            os.remove(Path("test_output_name.html"))
 
     def test_bar_height_custom_value(self):
         custom_data = {
@@ -45,3 +37,23 @@ class TestBar(unittest.TestCase):
         bar_chart_html = bar_chart(self.data, bar_color="rgb(255,0,0)")
         self.assertFalse('style="background-color: rgb(0,138,201);"' in bar_chart_html)
         self.assertTrue('style="background-color: rgb(255,0,0);"' in bar_chart_html)
+
+    def test_custom_label_color(self):
+        bar_chart_html = bar_chart(self.data, label_color="rgb(255,0,0)")
+        self.assertFalse("color: rgb(82,82,82);" in bar_chart_html)
+        self.assertTrue("color: rgb(255,0,0);" in bar_chart_html)
+
+    def test_file_output_default(self):
+        bar_chart_html = bar_chart(self.data)
+        self.assertFalse(os.path.isfile(Path("html_chart.html")))
+        self.assertTrue(bar_chart_html != None)
+
+    def test_file_output_true(self):
+        bar_chart_html = bar_chart(self.data, file_output=True)
+        self.assertTrue(os.path.isfile(Path("html_chart.html")))
+        self.assertTrue(bar_chart_html == None)
+    
+    def test_custom_file_name(self):
+        bar_chart(self.data, file_output=True, file_name="test_output_name")
+        self.assertFalse(os.path.isfile(Path("html_chart.html")))
+        self.assertTrue(os.path.isfile(Path("test_output_name.html")))
