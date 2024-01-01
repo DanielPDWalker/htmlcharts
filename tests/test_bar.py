@@ -48,3 +48,12 @@ class TestBar(unittest.TestCase):
         bar_chart_html = bar_chart(self.data, chart_width=800)
         self.assertFalse('table style="width: 400;"' in bar_chart_html)
         self.assertTrue('table style="width: 800;"' in bar_chart_html)
+
+    def test_default_bar_color(self):
+        bar_chart_html = bar_chart(self.data)
+        self.assertTrue('style="background-color: rgb(0,138,201);"' in bar_chart_html)
+
+    def test_custom_bar_color(self):
+        bar_chart_html = bar_chart(self.data, bar_color="rgb(255,0,0)")
+        self.assertFalse('style="background-color: rgb(0,138,201);"' in bar_chart_html)
+        self.assertTrue('style="background-color: rgb(255,0,0);"' in bar_chart_html)
