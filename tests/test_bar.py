@@ -9,7 +9,7 @@ class TestBar(unittest.TestCase):
     data = {"Mon": 4, "Tue": 2, "Wed": 8, "Thu": 1, "Fri": 0, "Sat": 3, "Sun": 2}
 
     def tearDown(self):
-        if os.path.isfile(Path("html_chart.html")) and 1 == 2:
+        if os.path.isfile(Path("html_chart.html")):
             os.remove(Path("html_chart.html"))
 
     def test_file_output_default(self):
