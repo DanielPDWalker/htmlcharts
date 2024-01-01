@@ -32,4 +32,4 @@ def bar_chart(
         with open(f"{file_name}.html", "w") as f:
             f.write(joined_html)
     else:
-        print(joined_html)
+        return(joined_html)
