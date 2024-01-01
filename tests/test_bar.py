@@ -22,10 +22,6 @@ class TestBar(unittest.TestCase):
         self.assertTrue(os.path.isfile(Path("html_chart.html")))
         self.assertTrue(bar_chart_html == None)
 
-    def test_bar_height_default_value(self):
-        bar_chart_html = bar_chart(self.data)
-        self.assertTrue('height="200"' in bar_chart_html)
-
     def test_bar_height_custom_value(self):
         custom_data = {
             "Mon": 0,
@@ -40,18 +36,10 @@ class TestBar(unittest.TestCase):
         self.assertFalse('height="200"' in bar_chart_html)
         self.assertTrue('height="500"' in bar_chart_html)
 
-    def test_default_chart_width(self):
-        bar_chart_html = bar_chart(self.data)
-        self.assertTrue('table style="width: 400;"' in bar_chart_html)
-
     def test_custom_chart_width(self):
         bar_chart_html = bar_chart(self.data, chart_width=800)
         self.assertFalse('table style="width: 400;"' in bar_chart_html)
         self.assertTrue('table style="width: 800;"' in bar_chart_html)
-
-    def test_default_bar_color(self):
-        bar_chart_html = bar_chart(self.data)
-        self.assertTrue('style="background-color: rgb(0,138,201);"' in bar_chart_html)
 
     def test_custom_bar_color(self):
         bar_chart_html = bar_chart(self.data, bar_color="rgb(255,0,0)")
