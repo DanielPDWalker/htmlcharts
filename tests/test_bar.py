@@ -52,7 +52,7 @@ class TestBar(unittest.TestCase):
         bar_chart_html = bar_chart(self.data, file_output=True)
         self.assertTrue(os.path.isfile(Path("html_chart.html")))
         self.assertTrue(bar_chart_html == None)
-    
+
     def test_custom_file_name(self):
         bar_chart(self.data, file_output=True, file_name="test_output_name")
         self.assertFalse(os.path.isfile(Path("html_chart.html")))
