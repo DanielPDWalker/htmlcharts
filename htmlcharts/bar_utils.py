@@ -10,7 +10,7 @@ def get_max_bar_value(data: dict):
     return max(bar_values)
 
 
-def style_html_template(label_color: str):
+def style_html_template(label_color: str, bar_width_percentage: int):
     return (
         """
         <style>
@@ -19,8 +19,10 @@ def style_html_template(label_color: str):
                 color: {label_color};"""
         + """
                 text-align: center;
-                font-size: 16px;
-                width: 14%;
+                font-size: 16px;"""
+        + f"""
+                width: {bar_width_percentage}%;"""
+        + """
                 margin: 0;
                 padding: 0;
             }

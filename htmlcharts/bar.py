@@ -15,7 +15,9 @@ def bar_chart(
 ):
     max_bar_value = get_max_bar_value(data)
 
-    style_html = style_html_template(label_color)
+    bar_width_percentage = floor(100 / len(data))
+
+    style_html = style_html_template(label_color, bar_width_percentage)
 
     xaxis_html = xaxis_html_template(data)
 
