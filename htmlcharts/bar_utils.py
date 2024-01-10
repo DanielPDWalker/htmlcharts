@@ -48,7 +48,7 @@ def join_html_template(style_html, xaxis_html, bars_html, chart_width):
                 {style_html}
             </head>
             <body>
-                <table style="width: {chart_width};">
+                <table style="min-width: {chart_width};">
                     <tbody>
                         <tr class="bars">
                             {bars_html}
