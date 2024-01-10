@@ -25,6 +25,7 @@ def style_html_template(label_color: str, bar_width_percentage: int):
         + """
                 margin: 0;
                 padding: 0;
+                padding-top: 2px;
             }
         </style>
     """
@@ -85,7 +86,7 @@ def bars_html_template(data, bar_height_multiplier, bar_height, bar_color):
                             </td>
                         </tr>
                         <tr>
-                            <td style="font-size: 14px; text-align:center;">
+                            <td style="font-size: 13px; text-align:center; padding-top: 5px;">
                                 {value}
                             </td>
                         </tr>
