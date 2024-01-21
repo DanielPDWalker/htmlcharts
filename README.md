@@ -40,8 +40,8 @@ The format for chart data is a python dictionary with `string` keys, and `int` v
 | ------------------------------- | ---------- | ----------- | --------------- |
 | `data` | `dict` | `None` | `dict` of `string` keys and `int` values |
 | `bar_height` | `int` | `200` | Sets max height of bars in chart. (Not overall canvas height, just bar height) |
-| `chart_width` | `int` | `400` |Sets chart width |
-| `bar_color` | `string` | `rgb(0,138,201)` | - Any color string that works in css |
-| `label_color` | `string` | `rgb(82,82,82)` | Any color string that works in css |
+| `chart_width` | `int` | `400` | Sets chart width |
+| `bar_color` | `string` | `rgb(0,138,201)` | Sets the color of the chart bars. Any color string that works in css |
+| `label_color` | `string` | `rgb(82,82,82)` | Sets the font color for the xaxis labels. Any color string that works in css |
 | `file_output` | `boolean` | `False` | Enable output of html file containing the chart |
 | `file_name` | `string` | `html_chart` | Name for the output file |
